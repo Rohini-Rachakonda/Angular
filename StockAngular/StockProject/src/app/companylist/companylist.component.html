@@ -1,0 +1,54 @@
+<body>
+
+   <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-7">
+         <br><h3 style="text-align: center;"> Company List</h3><br>
+
+   <table class="table table-hover table-sm" >
+
+    <thead class="thead-light">
+       <br>
+    <tr>
+            <th>CompanyName</th>
+            <th>Turnover</th>
+            <th>CEO</th>
+            <th>Board Of Directors</th>
+            <th>ListedinStockExchange</th>
+            <th>Sector</th>
+            <th>Brief</th>
+            <th>Stock Code</th>
+            <th>Update</th>
+            <th>Delete</th>
+     </tr>
+     </thead>
+        <tbody>
+    
+           <tr *ngFor="let company of companylist ">
+            <td>{{company.companyname}}</td>
+            <td>{{company.turnover}}</td>
+            <td>{{company.ceo}}</td>
+            <td>{{company.boardofdirectors}}</td>
+            <td>{{company.listedinstockexchange}}</td>
+            <td>{{company.sector}}</td>
+            <td>{{company.brief}}</td>
+            <td>{{company.stockcode}}</td>
+            
+            <td><button (click)="updateCompany(company)" class="btn btn-primary">Update</button></td>
+
+            <td><button (click)="deleteCompany(company)" class="btn btn-danger">Delete</button></td>
+             </tr>
+    
+          </tbody>
+    
+          </table>
+          <br>
+          <button class="btn btn-primary"><a class="nav-link" routerLink="/CreateCompany">
+
+            <h6 style="color: white;">Add Company</h6>
+      
+          </a></button>
+
+         </div>
+         </div>
+    </body>

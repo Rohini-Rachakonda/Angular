@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+
+ <body>
+
+
+
+<div class="row">
+
+ <div class="col-sm-4"></div>
+
+ <div class="col-sm-4" >
+
+  <div [hidden]="submitted" style="width: 400px;">
+
+   <form [formGroup]="iposaveform" #saveipo1 (ngSubmit)="saveIPO(saveipo1)">
+   
+     <div class="form-group">
+<h3>{{message}}</h3>
+<br><br>
+       <label for="name">IPO Id</label>
+
+       <input type="number" class="form-control" formControlName="id" data-toggle="tooltip"
+
+         data-placement="right" title="Enter IPO Id " >
+
+       <div class="alert alert-danger" *ngIf = "(iposaveform.get('id').touched) && (iposaveform.get('id').invalid)"
+
+        style="margin-top: 5px;">
+
+         <span *ngIf="iposaveform.get('id').errors.required">IPO Id is required</span>
+
+         
+
+        </div>
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="name">Company Name</label>
+
+      <input type="text" class="form-control" formControlName="companyname" data-toggle="tooltip"
+
+        data-placement="right" title="Enter companyname" >
+
+      <div class="alert alert-danger" *ngIf = "(iposaveform.get('companyname').touched) && (iposaveform.get('companyname').invalid)"
+
+       style="margin-top: 5px;">
+
+        <span *ngIf="iposaveform.get('companyname').errors.required">companyname is required</span>
+
+        
+       </div>
+
+    </div>
+
+     <div class="form-group">
+
+      <label for="name">Stock Exchange</label>
+
+      <input type="text" class="form-control" formControlName="stockexchange" data-toggle="tooltip"
+
+        data-placement="right" title="Stock Exchange" >
+
+      <div class="alert alert-danger" *ngIf = "(iposaveform.get('stockexchange').touched) && (iposaveform.get('stockexchange').invalid)"
+
+       style="margin-top: 5px;">
+         </div>
+    </div>
+     <div class="form-group">
+
+       <label for="name"> PriceperShare</label>
+
+       <input type="number" class="form-control" formControlName="pricepershare"
+
+        data-toggle="tooltip" data-placement="right" title="PriceperShare">
+
+        <div class="alert alert-danger" *ngIf = "(iposaveform.get('pricepershare').touched) && (iposaveform.get('pricepershare').invalid)"
+
+        style="margin-top: 5px;">
+
+         <span *ngIf="iposaveform.get('pricepershare').errors.required"> PriceperShare is Required</span>
+
+         
+
+        </div>
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="name">Number of Shares</label>
+
+      <input type="number" class="form-control" formControlName="numofshares" data-toggle="tooltip"
+
+        data-placement="right" title="Number of Shares" >
+
+      <div class="alert alert-danger" *ngIf = "(iposaveform.get('numofshares').touched) && (iposaveform.get('numofshares').invalid)"
+
+       style="margin-top: 5px;">
+
+        <span *ngIf="iposaveform.get('numofshares').errors.required">Number of Shares is required</span>
+         </div>
+ </div>
+ <div class="form-group">
+
+  <label for="name">OpenDateTime</label>
+
+  <input type="date" class="form-control" formControlName="openDateTime" data-toggle="tooltip"
+
+    data-placement="right" title="Number of Shares" >
+
+  <div class="alert alert-danger" *ngIf = "(iposaveform.get('openDateTime').touched) && (iposaveform.get('openDateTime').invalid)"
+
+   style="margin-top: 5px;">
+
+    <span *ngIf="iposaveform.get('openDateTime').errors.required">Number of Shares is required</span>
+     </div>
+</div>
+   
+      <div class="form-group">
+
+        <label for="name">Remarks</label>
+  
+        <input type="text" class="form-control" formControlName="remarks" data-toggle="tooltip"
+  
+          data-placement="right" title="Enter remarks" >
+  
+        <div class="alert alert-danger" *ngIf = "(iposaveform.get('remarks').touched) && (iposaveform.get('remarks').invalid)"
+  
+         style="margin-top: 5px;">
+  
+         <span *ngIf="iposaveform.get('remarks').errors.required">Remarks is required</span>
+         
+         </div>
+  
+      </div>
+     
+  <button type="submit" class="btn btn-success" [disabled]=!iposaveform.valid>Submit</button>
+
+   </form>
+
+ </div>
+
+ </div>
+
+ <div class="col-sm-4"></div>
+
+</div>
+<div [hidden]="!submitted">
+  <button (click)="iposaveform()"></button>
+</div>
+
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,42 @@
+<h3 style="text-align: center;">Ipo List</h3><br>
+<table class="table table-hover table-sm" >
+    <thead class="thead-light">
+         <tr>
+            <th>Id</th>
+            <th>CompanyName</th>
+            <th>StockExchange</th>
+            <th>PriceperShare</th>
+            <th>NumOfShares</th>
+            <th>OpenDateTime</th>
+            <th>Remarks</th>
+            <th>Update</th>
+            <th>Delete</th>
+     </tr>
+     </thead>
+        <tbody>
+    
+           <tr *ngFor="let ipo of ipolist ">
+            <td>{{ipo.id}}</td>
+            <td>{{ipo.companyname}}</td>
+            <td>{{ipo.stockexchange}}</td>
+            <td>{{ipo.pricepershare}}</td>
+            <td>{{ipo.numofshares}}</td>
+            <td>{{ipo.openDateTime}}</td>
+            <td>{{ipo.remarks}}</td>
+            <td><button (click)="updateIpo(ipo)" class="btn btn-primary">Update</button></td>
+
+            <td><button (click)="deleteIPO(ipo)" class="btn btn-danger">Delete</button></td>
+           
+          </tr>
+          <br>
+          <button class="btn btn-primary"><a class="nav-link" routerLink="/CreateIPO">
+
+            <h6 style="color: white;">Add</h6>
+      
+          </a></button>
+          </tbody>
+    
+          </table>
+    
+    
+

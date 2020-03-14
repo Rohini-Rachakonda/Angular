@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+ <body>
+
+
+
+<div class="row">
+
+ <div class="col-sm-4"></div>
+
+ <div class="col-sm-4" >
+
+  <div [hidden]="submitted" style="width: 400px;">
+
+   <form [formGroup]="sectorsaveform" #savesector1 (ngSubmit)="saveSectors(savesector1)">
+   
+     <div class="form-group">
+       <br>
+      <h3>{{message}}</h3>
+<br><br>
+       <label for="name">Sector Id</label>
+
+       <input type="number" class="form-control" formControlName="id" data-toggle="tooltip"
+
+         data-placement="right" title="Enter Sector Id " >
+
+       <div class="alert alert-danger" *ngIf = "(sectorsaveform.get('id').touched) && (sectorsaveform.get('id').invalid)"
+
+        style="margin-top: 5px;">
+
+         <span *ngIf="sectorsaveform.get('id').errors.required">Sector Id is required</span>
+
+         
+
+        </div>
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="name">Sector Name</label>
+
+      <input type="text" class="form-control" formControlName="sectorname" data-toggle="tooltip"
+
+        data-placement="right" title="Enter sectorname" >
+
+      <div class="alert alert-danger" *ngIf = "(sectorsaveform.get('sectorname').touched) && (sectorsaveform.get('sectorname').invalid)"
+
+       style="margin-top: 5px;">
+
+        <span *ngIf="sectorsaveform.get('sectorname').errors.required">sectorname is required</span>
+
+        
+       </div>
+
+    </div>
+
+     <div class="form-group">
+
+      <label for="name">Brief</label>
+
+      <input type="text" class="form-control" formControlName="brief" data-toggle="tooltip"
+
+        data-placement="right" title="Brief" >
+
+      <div class="alert alert-danger" *ngIf = "(sectorsaveform.get('brief').touched) && (sectorsaveform.get('brief').invalid)"
+
+       style="margin-top: 5px;">
+       <span *ngIf="sectorsaveform.get('brief').errors.required">Brief is required</span>
+
+         </div>
+    </div>
+     
+  <button type="submit" class="btn btn-success" [disabled]=!sectorsaveform.valid>Submit</button>
+
+   </form>
+
+ </div>
+
+ </div>
+
+ <div class="col-sm-4"></div>
+
+</div>
+<div [hidden]="!submitted">
+  <button (click)="sectorsaveform()"></button>
+</div>
+
+</body>
+
+</html>
+
+
+
+
+

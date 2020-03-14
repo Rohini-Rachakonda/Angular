@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+
+ <body>
+
+
+
+<div class="row">
+
+ <div class="col-sm-4"></div>
+
+ <div class="col-sm-4" >
+
+  <div [hidden]="submitted" style="width: 400px;">
+
+   <form [formGroup]="companysaveform" #saveCompany1 (ngSubmit)="saveCompany(savecompany1)">
+   
+     <div class="form-group">
+<h3>{{message}}</h3>
+<br><br>
+       <label for="name">Company Name</label>
+
+       <input type="text" class="form-control" formControlName="companyname" data-toggle="tooltip"
+
+         data-placement="right" title="Enter Company Name" >
+
+       <div class="alert alert-danger" *ngIf = "(companysaveform.get('companyname').touched) && (companysaveform.get('companyname').invalid)"
+
+        style="margin-top: 5px;">
+
+         <span *ngIf="companysaveform.get('companyname').errors.required">companyname is required</span>
+
+         
+
+        </div>
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="name">TurnOver</label>
+
+      <input type="number" class="form-control" formControlName="turnover" data-toggle="tooltip"
+
+        data-placement="right" title="Enter TurnOver" >
+
+      <div class="alert alert-danger" *ngIf = "(companysaveform.get('turnover').touched) && (companysaveform.get('turnover').invalid)"
+
+       style="margin-top: 5px;">
+
+        <span *ngIf="companysaveform.get('turnover').errors.required">Turnover is required</span>
+
+        
+       </div>
+
+    </div>
+
+     <div class="form-group">
+
+      <label for="name">CEO</label>
+
+      <input type="text" class="form-control" formControlName="ceo" data-toggle="tooltip"
+
+        data-placement="right" title="CEO" >
+
+      <div class="alert alert-danger" *ngIf = "(companysaveform.get('ceo').touched) && (companysaveform.get('ceo').invalid)"
+
+       style="margin-top: 5px;">
+       <span *ngIf="companysaveform.get('ceo').errors.required"> CEO is Required</span>
+         </div>
+    </div>
+     <div class="form-group">
+
+       <label for="name"> BoardOfDirectors</label>
+
+       <input type="text" class="form-control" formControlName="boardofdirectors"
+
+        data-toggle="tooltip" data-placement="right" title="BoardOfDirectors">
+
+        <div class="alert alert-danger" *ngIf = "(companysaveform.get('boardofdirectors').touched) && (companysaveform.get('boardofdirectors').invalid)"
+
+        style="margin-top: 5px;">
+
+         <span *ngIf="companysaveform.get('boardofdirectors').errors.required"> BoardOfDirectors is Required</span>
+
+         
+
+        </div>
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="name">Listed In Stock Exchange</label>
+
+      <input type="text" class="form-control" formControlName="listedinstockexchange" data-toggle="tooltip"
+
+        data-placement="right" title="Enter Listed In Stock Exchange" >
+
+      <div class="alert alert-danger" *ngIf = "(companysaveform.get('listedinstockexchange').touched) && (companysaveform.get('listedinstockexchange').invalid)"
+
+       style="margin-top: 5px;">
+
+        <span *ngIf="companysaveform.get('listedinstockexchange').errors.required">Listed In Stock Exchange is required</span>
+         </div>
+ </div>
+    <div class="form-group">
+
+        <label for="name">Sector</label>
+  
+        <input type="text" class="form-control" formControlName="sector" data-toggle="tooltip"
+  
+          data-placement="right" title="Enter Sector" >
+  
+        <div class="alert alert-danger" *ngIf = "(companysaveform.get('sector').touched) && (companysaveform.get('sector').invalid)"
+  
+         style="margin-top: 5px;">
+  
+         <span *ngIf="companysaveform.get('sector').errors.required">Sector is required</span>
+         
+         </div>
+  
+      </div>
+      <div class="form-group">
+
+        <label for="name">Brief</label>
+  
+        <input type="text" class="form-control" formControlName="brief" data-toggle="tooltip"
+  
+          data-placement="right" title="Enter Brief" >
+  
+        <div class="alert alert-danger" *ngIf = "(companysaveform.get('brief').touched) && (companysaveform.get('brief').invalid)"
+  
+         style="margin-top: 5px;">
+  
+         <span *ngIf="companysaveform.get('brief').errors.required">Brief is required</span>
+         
+         </div>
+  
+      </div>
+      <div class="form-group">
+
+        <label for="name">Stock Code</label>
+  
+        <input type="text" class="form-control" formControlName="stockcode" data-toggle="tooltip"
+  
+          data-placement="right" title="Enter stockcode" >
+  
+        <div class="alert alert-danger" *ngIf = "(companysaveform.get('stockcode').touched) && (companysaveform.get('stockcode').invalid)"
+  
+         style="margin-top: 5px;">
+  
+         <span *ngIf="companysaveform.get('stockcode').errors.required"> Stock Codeis required</span>
+         
+         </div>
+  
+      </div>
+  
+  <button type="submit" class="btn btn-success"[disabled]=!companysaveform.valid>Submit</button>
+
+   </form>
+
+ </div>
+
+ </div>
+
+ <div class="col-sm-4"></div>
+
+</div>
+<div [hidden]="!submitted">
+  <button (click)="companyssaveform()"></button>
+</div>
+</body>
+
+</html>
+
+
+

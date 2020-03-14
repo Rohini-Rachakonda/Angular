@@ -1,0 +1,57 @@
+<br><h3 style="text-align: center;">UserList</h3><br>
+
+<table class="table table-hover table-sm" >
+<thead class="thead-light">
+  
+  <br>
+<tr>
+  <th>ID</th>
+
+        <th>USERNAME</th>
+
+        <th>EMAIL</th>
+
+        <th>PASSWORD</th>
+
+        <th>MOBILENUMBER</th>
+
+        <th>USERTYPE</th>
+
+        <th>CONFIRMED</th>
+        <th>ProfileImages</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+       <tr *ngFor="let user of userList ">
+
+        <td>{{user.id}}</td>
+
+        <td>{{user.username}}</td>
+
+        <td>{{user.email}}</td>
+
+        <td>{{user.password}}</td>
+
+        <td>{{user.mobilenumber}}</td>
+
+        <td>{{user.usertype}}</td>
+
+        <td>{{user.confirmed}}</td>
+        <td>{{user.profileImage}}</td>
+        <td><button (click)="updateUser(user)" class="btn btn-primary">Update</button></td>
+
+        <td><button (click)="deleteUser(user)" class="btn btn-danger">Delete</button></td>
+
+        </tr>
+
+      </tbody>
+
+      </table>
+

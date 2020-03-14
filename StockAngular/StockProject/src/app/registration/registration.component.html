@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+
+ <body>
+
+
+<div class="row">
+
+ <div class="col-sm-4"></div>
+
+ <div class="col-sm-4" >
+
+  <div [hidden]="submitted" style="width: 400px;">
+
+   <form [formGroup]="usersaveform" #saveUser1 (ngSubmit)="saveUser(saveUser1)">
+    <div class="form-group">
+    <h3>{{message}}</h3>
+      <label for="name">Id</label>
+
+      <input type="number" class="form-control" formControlName="id" data-toggle="tooltip"
+
+        data-placement="right" title="Enter Id" >
+
+      <div class="alert alert-danger" *ngIf = "(usersaveform.get('id').touched) && (usersaveform.get('id').invalid)"
+
+       style="margin-top: 5px;">
+
+        <span *ngIf="usersaveform.get('id').errors.required">id is required</span>
+
+       
+       </div>
+
+    </div>
+
+
+
+ 
+
+     <div class="form-group">
+
+       <label for="name">User Name</label>
+
+       <input type="text" class="form-control" formControlName="username" data-toggle="tooltip"
+
+         data-placement="right" title="Enter User Name" >
+
+       <div class="alert alert-danger" *ngIf = "(usersaveform.get('username').touched) && (usersaveform.get('username').invalid)"
+
+        style="margin-top: 5px;">
+
+         <span *ngIf="usersaveform.get('username').errors.required">username is required</span>
+
+        
+        </div>
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="name">Password</label>
+
+      <input type="password" class="form-control" formControlName="password" data-toggle="tooltip"
+
+        data-placement="right" title="Enter Password" >
+
+      <div class="alert alert-danger" *ngIf = "(usersaveform.get('password').touched) && (usersaveform.get('password').invalid)"
+
+       style="margin-top: 5px;">
+
+        <span *ngIf="usersaveform.get('password').errors.required">password is required</span>
+
+         <span *ngIf = "usersaveform.get('password').errors.minlength">
+
+           MinLength Error
+
+         </span>
+
+       </div>
+
+    </div>
+
+
+
+   
+     <div class="form-group">
+
+       <label for="name"> Email</label>
+
+       <input type="text" class="form-control" formControlName="email"
+
+        data-toggle="tooltip" data-placement="right" title="Enter User Email">
+
+        <div class="alert alert-danger" *ngIf = "(usersaveform.get('email').touched) && (usersaveform.get('email').invalid)"
+
+        style="margin-top: 5px;">
+
+         <span *ngIf="usersaveform.get('email').errors.required"> Email is Required</span>
+
+          <span *ngIf = "usersaveform.get('email').errors.email">
+
+            Invalid Email Format
+
+          </span>
+
+        </div>
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="name">Contact Number</label>
+
+      <input type="number"  class="form-control" formControlName="mobilenumber"   data-toggle="tooltip" pattern="^\d{10}$"
+
+        data-placement="right" title="Enter Contact Number" >
+
+      <div class="alert alert-danger" *ngIf = "(usersaveform.get('mobilenumber').touched) && (usersaveform.get('mobilenumber').invalid)"
+
+       style="margin-top: 5px;">
+
+        <span *ngIf="usersaveform.get('mobilenumber').errors.required">Contact is required</span>
+
+         <span *ngIf = "usersaveform.get('mobilenumber').errors.pattern">
+
+           Enter valid mobilenumber
+         </span>
+
+       </div>
+
+    </div>
+    
+
+    <div class="row">  
+      
+            
+        <label for="profileImage">Upload Image</label>  
+          <input formControlName="profileImage" class="form-control" type="file" (change)="selectFile($event)">   
+      
+    </div>  
+  
+   <button type="submit" class="btn btn-success" [disabled]=!usersaveform.valid>Submit</button>
+
+   </form>
+
+ </div>
+
+ </div>
+
+ <div class="col-sm-4"></div>
+
+</div>
+<div [hidden]="!submitted">
+  <button (click)="usersaveform()"></button>
+</div>
+</body>
+
+</html>
+
+
+

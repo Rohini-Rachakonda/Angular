@@ -1,0 +1,103 @@
+<body>
+
+    <div [formGroup]="myGroup"> 
+    <div class="row">
+      <div class="col-sm-4"></div>
+     
+     <div class="col-sm-4">
+    <div class="form-group">
+     <label for="Choose"><h5>Select Company/sector</h5></label>
+     <select class="form-control" formControlName="choose" data-toggle="tooltip"
+      data-placement="right" placeholder="Select Company" required="required">
+      <option value="null">--Select --</option>
+      <option value="Company">Company</option>
+      <option value="Sector">Sector</option>
+     </select>
+     </div>
+     </div>
+  </div>
+  <br>
+     <div class="row">
+      <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+              <div class="form-group">
+     <label for="Sectors"><h5>Select Sectors</h5></label>
+     <select class="form-control" formControlName="sectorname" (change)='sectorChange()' placeholder="Select Sector" >
+  
+      <option value="NSE">NSE</option>
+        <option value="BSE">BSE</option>
+     </select>
+   </div>
+     </div>
+     </div>
+     <br>
+   <div class="row">
+      <div class="col-sm-4"></div>
+     
+     <div class="col-sm-4">
+     <div class="form-group">
+     <label for="name"><h5>CompanyName</h5></label>
+     <select class="form-control" formControlName="companyname" title="Select">
+   <option *ngFor="let company of companyList " value="{{company.companyname}}">{{company.companyname}}
+  
+     </option>
+  
+     </select>
+     </div>
+    </div>
+    </div>
+  <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+    <div class="form-group">
+  
+    <div class="input-group">
+  
+    <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+  
+    <input type="date" class="form-control" formControlName="fromdate" required="required">
+  
+    <div class="alert alert-danger" *ngIf = "(myGroup.controls['fromdate'].touched)&&(myGroup.controls['fromdate'].invalid)"
+  
+          style="margin-top: 5px;">
+  
+     <span *ngIf="myGroup.controls['fromdate'].errors.required">Date is Required</span>
+    </div>
+    </div>
+   </div>
+    </div>
+   </div>
+  <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+    <div class="form-group">
+  
+    <div class="input-group">
+  
+    <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+  
+    <input type="date" class="form-control" formControlName="todate" placeholder="Date" required="required">
+  
+    <div class="alert alert-danger" *ngIf = "(myGroup.controls['todate'].touched)&&(myGroup.controls['todate'].invalid)"
+  
+          style="margin-top: 5px;">
+  
+     <span *ngIf="myGroup.controls['todate'].errors.required">Date is Required</span>
+  </div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">   
+            <div class="form-group">  
+<button type="submit" class="btn btn-success">Generate Map</button>
+</div>
+</div>
+</div>
+    </div>
+    <div #container id="container"></div>
+   </body>
+  
+  
